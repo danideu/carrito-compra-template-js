@@ -1,8 +1,5 @@
 #Ejemplo carrito de compras con Objetos y Template
 
-## Todo con fines educativos
-Si puedes mejorar el código bienvenido!
-
 ## template
 ```html
 <template id="template">
