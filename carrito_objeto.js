@@ -1,7 +1,10 @@
+//Creación de carrito compra con OBJETOS.
+
 const carrito = document.querySelector('#carrito')
 const template = document.querySelector('#template')
 const fragment = document.createDocumentFragment()
 
+//Recogemos todos los botones de la pantalla que tengan clase .card .btn
 const botones = document.querySelectorAll('.card .btn')
 
 const carritoObjeto = {}
@@ -23,7 +26,7 @@ const agregarAlCarrito = (e) => {
     console.log(carritoObjeto)
 }
 
-const pintarCarrito = () => {
+const pintarCarrito = ( ) => {
     
     carrito.textContent = ""
 
@@ -38,4 +41,5 @@ const pintarCarrito = () => {
     
 }
 
+//Agregamos una escucha a los botones, para que cuando haga click en alguno de ellos, lance la función agregarAlCarrito()
 botones.forEach(btn => btn.addEventListener("click", agregarAlCarrito))
