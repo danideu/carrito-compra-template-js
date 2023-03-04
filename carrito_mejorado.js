@@ -41,7 +41,7 @@ const agregarAlCarrito = (e) => {
         // carritoObjeto[indice].precio = carritoObjeto[indice].cantidad * producto.precio
     }
 
-    console.log(carritoObjeto)
+    // console.log(carritoObjeto)
     pintarCarrito()
 }
 
@@ -61,6 +61,22 @@ const pintarCarrito = () => {
     })
 
     carrito.appendChild(fragment)
+
+    pintarFooter()
+}
+
+const pintarFooter = () => {
+    console.log("Pintar footer")
+    footer.textContent = ""
+
+    const total = carritoObjeto.reduce(
+        (acc, current) => acc + current.cantidad * current.precio, 0
+    )
+    // console.log(total) 
+
+    const clone = templateFooter.content.cloneNode(true)
+    clone.querySelector('span').textContent = total
+    if( total > 0 ) footer.appendChild(clone)
 }
 
 const btnAumentar = (e) => {
@@ -75,7 +91,7 @@ const btnAumentar = (e) => {
 }
 
 const btnDisminuir = (e) => {
-    console.log("Me diste Disminuir", e.target.dataset.id)
+    // console.log("Me diste Disminuir", e.target.dataset.id)
     carritoObjeto = carritoObjeto.filter(item => {
         if(item.id === e.target.dataset.id){
             if(item.cantidad > 0){
